@@ -1,11 +1,11 @@
-function computerPlay(){
+function chooseComputerSelection(){
     let sign = ["rock", "paper", "scissors"];
     let choice = Math.floor(Math.random() * 3);
 
     return sign[choice];
 }
 
-function playerPlay(){
+function choosePlayerSelection(){
     let selection = prompt("Please select rock, paper or scissors?");
     selection = selection.toLowerCase();
 
@@ -17,7 +17,7 @@ function playerPlay(){
     return selection;
 }
 
-function oneRound(playerSelection, computerSelection){
+function playOneRound(playerSelection, computerSelection){
 
     if (playerSelection === computerSelection) {
         return `You both chose ${playerSelection}. It's a draw`;
@@ -35,15 +35,15 @@ function capitalize(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-function game(){
+function startGame(){
     for (i = 1; i <= 5; i++) {
         console.log(`Round ${i}`);
-        let computer = computerPlay();
-        let human = playerPlay();
+        let computer = chooseComputerSelection();
+        let human = choosePlayerSelection();
     
-        let result = oneRound(human, computer);
+        let result = playOneRound(human, computer);
         console.log(result);
     }
 }
 
-game();
+startGame();
